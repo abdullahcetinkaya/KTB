@@ -1,0 +1,56 @@
+﻿@model IEnumerable<KTB.Models.Urun>
+
+@{
+    ViewBag.Title = "Ürün";
+}
+
+<h2>Ürün Listesi</h2>
+<br />
+<p>
+    @Html.ActionLink("Yeni Ürün Oluştur", "Create", null, new { @class = "btn btn-primary btn-xm  btn-block" })
+</p>
+<br />
+<table class="table" style=" border: 2px solid black;">
+    <thead>
+        <tr >
+            <th>
+                @Html.DisplayName("Ürün Kodu")
+            </th>
+            <th>
+                @Html.DisplayName("Ürün Adı")
+            </th>
+            <th>
+                @Html.DisplayName("Ürün Fiyatı")
+            </th>
+            <th>@Html.DisplayName("#Düzenle")</th>
+            <th>@Html.DisplayName("#Sil")</th>
+            <th>@Html.DisplayName("#Detay")</th>
+        </tr>
+    </thead>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrunKodu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrunAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrunFiyati)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-warning btn-xm  btn-block" })
+            </td>
+            <td>
+                @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-xm  btn-block" })
+            </td>
+            <td>
+                @Html.ActionLink("Detay", "Details", new { id = item.Id }, new { @class = "btn btn-info btn-xm  btn-block" })
+            </td>
+        </tr>
+    }
+
+</table>

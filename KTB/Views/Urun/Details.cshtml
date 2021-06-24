@@ -1,0 +1,42 @@
+﻿@model KTB.Models.Urun
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Ürün Detay</h2>
+
+<div>
+    <h4>Ürün Bilgileri:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Ürün Kodu:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunKodu)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Ürün Adı:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Ürün Fiyatı:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunFiyati)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink(" Ürün Listesine Geri Dön", "Index", "Urun", null, new { @class = "btn btn-info glyphicon glyphicon-th-list" })
+    @Html.ActionLink(" Düzenle", "Edit", "Urun", new { id = Model.Id }, new { @class = "btn btn-warning glyphicon glyphicon-edit" })
+</p>

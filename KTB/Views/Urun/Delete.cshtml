@@ -1,0 +1,51 @@
+﻿@model KTB.Models.Urun
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Ürün Sil</h2>
+
+<h3>Bu ürünü silmek istediğinize emin misiniz?</h3>
+<div>
+    <h4>Ürün Bilgileri:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Ürün Kodu:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunKodu)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Ürün Adı:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Ürün Fiyatı:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunFiyati)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        @Html.ActionLink(" Ürün Listesine Geri Dön", "Index", "Urun", null, new { @class = "btn btn-info glyphicon glyphicon-th-list" })
+        <button type="submit" class="btn btn-danger">
+            <span class="glyphicon glyphicon-remove-sign"></span>
+            <span class="submit-text">Sil</span>
+        </button>
+    </div>
+    }
+</div>
